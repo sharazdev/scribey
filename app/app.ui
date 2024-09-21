@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1065</width>
+    <height>611</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Scribey</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(16, 16, 20);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="leftMargin">
+     <number>200</number>
+    </property>
+    <property name="rightMargin">
+     <number>200</number>
+    </property>
+    <item>
+     <widget class="QStackedWidget" name="pagesStackedWidget">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="homePage">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QFrame" name="homeContainerFrame">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="spacing">
+            <number>60</number>
+           </property>
+           <property name="leftMargin">
+            <number>11</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="homeTitleLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">@font-face {
+       font-family: &quot;Soleil&quot;;
+       src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+   }
+
+   QLabel {
+       font-family: &quot;Soleil&quot;;
+       font-size: 22pt;
+       color: #f7f7f7;
+       font-weight: normal;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+   }</string>
+             </property>
+             <property name="text">
+              <string>Choose an audio file to transcribe.</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QPushButton" name="homeBrowseButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>400</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">@font-face {
+    font-family: &quot;Soleil&quot;;
+    src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+}
+
+QPushButton {
+    background-color: #2D81FF;
+    color: #f7f7f7;
+    border: none;
+    font-family: &quot;Soleil&quot;;
+    font-size: 10pt;
+    outline: none;
+    padding: 14px;
+    border-radius: 5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease;
+}
+
+QPushButton:hover {
+    background-color: #4291FF;
+}
+
+QPushButton:pressed {
+    background-color: #1D71EF;
+    color: #e0e0e0;
+}</string>
+             </property>
+             <property name="text">
+              <string>Browse Files</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="transcribePage">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QFrame" name="transcribeContainerFrame">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="spacing">
+            <number>25</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="transcribeProgressLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">@font-face {
+       font-family: &quot;Soleil&quot;;
+       src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+   }
+
+   QLabel {
+       font-family: &quot;Soleil&quot;;
+       font-size: 12pt;
+       color: #f7f7f7;
+       font-weight: normal;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+   }</string>
+             </property>
+             <property name="text">
+              <string>Currently transcribing audio... 0%</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="audioTitleFrame">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QFrame {
+
+background-color: #1A1A1F;
+
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="spacing">
+               <number>15</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="audioIconLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>40</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>icons/audio.svg</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="audioFilenameLabel">
+                <property name="styleSheet">
+                 <string notr="true">@font-face {
+       font-family: &quot;Soleil&quot;;
+       src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+   }
+
+   QLabel {
+       font-family: &quot;Soleil&quot;;
+       font-size: 14pt;
+       color: #f7f7f7;
+       font-weight: normal;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+   }</string>
+                </property>
+                <property name="text">
+                 <string>jre.wav</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="transcriptionResultPage">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QFrame" name="resultContainerFrame">
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QFrame" name="resultTopBarFrame">
+             <property name="styleSheet">
+              <string notr="true">background-color: transparent;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLabel" name="resultTitleBarLabel">
+                <property name="styleSheet">
+                 <string notr="true">@font-face {
+       font-family: &quot;Soleil&quot;;
+       src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+   }
+
+   QLabel {
+       font-family: &quot;Soleil&quot;;
+       font-size: 13pt;
+       color: #f7f7f7;
+       font-weight: normal;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+   }</string>
+                </property>
+                <property name="text">
+                 <string>Your Transcription</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="fileTypeComboBox">
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #3a3a3a;
+    border-radius:53px;
+    padding: 11px;
+    min-width: 150px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-left: 1px solid #3a3a3a;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #3a3a3a;
+    selection-background-color: #3a3a3a;
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 25px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #3a3a3a;
+}</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Captions (.SRT File)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Transcript (.txt File)</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="styleSheet">
+                 <string notr="true">@font-face {
+    font-family: &quot;Soleil&quot;;
+    src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+}
+
+QPushButton {
+    background-color: #2D81FF;
+    color: #fff;
+    border: none;
+    font-family: &quot;Soleil&quot;;
+    font-size: 10pt;
+    outline: none;
+    padding: 12px;
+    border-radius: 5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease;
+}
+
+QPushButton:hover {
+    background-color: #4291FF;
+}
+
+QPushButton:pressed {
+    background-color: #1D71EF;
+    color: #e0e0e0;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Download</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="transcriptionFrame">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QFrame#transcriptionFrame {
+background-color: #1A1A1F;
+border: 1px solid #2C2C33;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QScrollArea" name="scrollArea">
+                <property name="styleSheet">
+                 <string notr="true">QScrollArea {
+    border: none;
+    background-color: transparent;
+}
+
+QScrollArea &gt; QWidget &gt; QWidget {
+    background-color: transparent;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: #2A2A2A;
+    width: 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #5A5A5A;
+    min-height: 20px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #6A6A6A;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    height: 0px;
+    background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>574</width>
+                   <height>916</height>
+                  </rect>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <property name="leftMargin">
+                   <number>2</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>2</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>2</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>2</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="transcriptionTextLabel">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">@font-face {
+       font-family: &quot;Soleil&quot;;
+       src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+   }
+
+   QLabel {
+       font-family: &quot;Soleil&quot;;
+       font-size: 10pt;
+       color: #f7f7f7;
+       font-weight: normal;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+   }</string>
+                    </property>
+                    <property name="text">
+                     <string>Do you really bear the responsibility of the course of our country based on a conversation? I think you can revitalize and rehabilitate someone's image in a way that is pretty shocking. Look at the way people look at Alex Jones now because Alex Jones has been on my podcast a few times. Yeah. How do they which direction?
+
+The people that have watched those podcasts Yeah. Think he's hilarious, and they think that he definitely fucked up with that whole Sandy Hook thing, but he's right more than he's wrong, and he's not an evil guy. He's just a guy who's had some psychotic breaks in his life. He's had some genuine mental health issues that he's addressed. He's had some serious bouts of alcoholism, some serious bouts of, you know, substance abuse, and they've contributed to some very poor thinking.
+
+But if you know the guy, if you get to know him like I have I've known him for more than 20 years. And if you know him on podcasts, you realize, like, he is genuinely trying to unearth some things that are genuinely disturbing for most people. Like, this is a guy that was telling me about Epstein's, island fucking decade ago, at least. He was telling me about I was like, what? You're telling me there's a place where they bring elites to compromise them with underage girls, and they film them.
+
+Really? Like, what? Cut the fuck out of here. Yeah. Like, no.
+
+President Clinton's been there. Everyone's been there. Like, what? It sounds like nonsense. And not only is it true, but people keep getting fucking murdered for it.
+
+Did you see that latest Clinton adviser that got murdered about it? Yep. Yeah. Yep. Hung with an extension cord, shot himself in the chest 30 miles from his house, and they're calling into suicide.
+
+And I even Elon Musk is asking, where's the clientele list? Yeah. We should we should probably see who's been to that island. Yeah. We should probably see who's been to that island.
+
+And there's probably more of those kind of things out there that haven't been exposed. Yeah. But sort of, to push back in you you had those conversations with Alex Jones. Wouldn't you be able to have the same kind of conversation with Donald Trump? The problem.
+
+Reveal no. It's not the problem. You revealed that Alex Jones is a human being. Yeah. He's fucked up.
+
+He has demons in his head. He's obviously chaotic all over the place, but there's some wisdom to the perspective he takes on the world. Even if though he is often full of shit, he is able to predict certain things, and very few people are are willing to bring up.</string>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>false</bool>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="newTranscriptionButton">
+      <property name="styleSheet">
+       <string notr="true">@font-face {
+    font-family: &quot;Soleil&quot;;
+    src: url(&quot;fonts/SoleilRegular.ttf&quot;);
+}
+
+QPushButton {
+    background-color: #343940;
+    color: #fff;
+    border: none;
+    font-family: &quot;Soleil&quot;;
+    font-size: 10pt;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease;
+}
+
+QPushButton:hover {
+    background-color: #434952;
+}
+
+QPushButton:pressed {
+    background-color: #24272b;
+    color: #e0e0e0;
+}</string>
+      </property>
+      <property name="text">
+       <string>New Transcription</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
